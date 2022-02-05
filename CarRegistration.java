@@ -396,7 +396,7 @@ class CarModel extends JFrame implements ActionListener {
                     return;
             }else{
                 // show all the details here
-                finalMessage.setText("Registered Successfully!");
+                finalMessage.setText("Registered Successfully !");
             }
         }
         else if(e.getSource() == addImageBtn){

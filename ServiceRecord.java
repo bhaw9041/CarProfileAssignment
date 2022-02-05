@@ -4,7 +4,7 @@ public class ServiceRecord {
     Float serviceCost;
 
     public String getServiceDate() {
-        return serviceDate;
+        return serviceDate ;
     }
 
     public void setServiceDate(String serviceDate) {
