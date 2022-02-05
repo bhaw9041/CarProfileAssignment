@@ -41,7 +41,7 @@ class CarModel extends JFrame implements ActionListener {
     private JLabel warrantyYear;
     private JTextField warrantyYearField;
     private JButton sub;
-    private JLabel res;
+    private JLabel finalMessage;
 
 
     private List<ServiceRecord> serviceRecordList;
@@ -289,10 +289,10 @@ class CarModel extends JFrame implements ActionListener {
         addServiceRecord = new JButton("Add Service Records");
         addServiceRecord.setFont(new Font("Times New Roman", Font.PLAIN, 15));
         addServiceRecord.setSize(150, 20);
-        addServiceRecord.setLocation(800, 700);
+        addServiceRecord.setLocation(700, 700);
         addServiceRecord.addActionListener(this);
         c.add(addServiceRecord);
-        //service record ends
+        ///service  record ends
         
 
         //image url
@@ -311,10 +311,10 @@ class CarModel extends JFrame implements ActionListener {
         addImageBtn = new JButton("Add Image");
         addImageBtn.setFont(new Font("Times New Roman", Font.PLAIN, 15));
         addImageBtn.setSize(150, 20);
-        addImageBtn.setLocation(650, 700);
+        addImageBtn.setLocation(550, 700);
         addImageBtn.addActionListener(this);
         c.add(addImageBtn);
-        /// image url ends
+        ///image url ends
 
         sub = new JButton("Submit");
         sub.setFont(new Font("Times New Roman", Font.PLAIN, 15));
@@ -324,13 +324,11 @@ class CarModel extends JFrame implements ActionListener {
         c.add(sub);
 
 
-        
-
-        res = new JLabel("");
-        res.setFont(new Font("Times New Roman", Font.PLAIN, 15));
-        res.setSize(500, 25);
-        res.setLocation(900, 500);
-        c.add(res);
+        finalMessage = new JLabel("");
+        finalMessage.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+        finalMessage.setSize(500, 25);
+        finalMessage.setLocation(900, 500);
+        c.add(finalMessage);
 
 
         setVisible(true);
@@ -360,9 +358,45 @@ class CarModel extends JFrame implements ActionListener {
             }else if(imageUrl.getText().length() == 0){
                 showError("Image Url is required");
                 return;
+            }else if(carModelName.getText().length() == 0){
+                showError("Car model name is required");
+                return;
+            }else if(carColor.getText().length() == 0){
+                    showError("Car color is required");
+                    return;
+            }else if(carSeats.getText().length() == 0){
+                    showError("Car seats number is required");
+                    return;
+            }else if(carLicense.getText().length() == 0){
+                    showError("License Plate number is required");
+                    return;
+            }else if(ownerPhoneNumber.getText().length() == 0){
+                    showError("Car owner's phone number is required");
+                    return;
+            }else if(ownerNameField.getText().length() == 0){
+                    showError("Car Owner's name is required");
+                    return;
+            }else if(ownerEmailaddress.getText().length() == 0){
+                    showError("Car Owner's email address is required");
+                    return;
+            }else if(driverLicenseNumber.getText().length() == 0){
+                    showError("Driver's license number  is required");
+                    return;
+            }else if(ssnField.getText().length() == 0){
+                    showError("Car Owner's Social Security Number is required");
+                    return;
+            }else if(ownerAddressField.getText().length() == 0){
+                    showError("Car Owner's address is required");
+                    return;
+            }else if(warrantyYearField.getText().length() == 0){
+                    showError("Car's warranty year is required");
+                    return;
+            }else if(ownerAddressField.getText().length() == 0){
+                    showError("Car Owner's address is required");
+                    return;
             }else{
                 // show all the details here
-                res.setText("Registered Successfully...");
+                finalMessage.setText("Registered Successfully!");
             }
         }
         else if(e.getSource() == addImageBtn){
@@ -370,7 +404,7 @@ class CarModel extends JFrame implements ActionListener {
                 URL url = new URL(imageUrl.getText());
                 Image image = ImageIO.read(url);
                 JLabel labelImg = new JLabel(new ImageIcon(image));
-                labelImg.setSize(300, 300);
+                labelImg.setSize(400, 250);
                 labelImg.setLocation(500, 100);
                 c.add(labelImg);
                 c.repaint();
@@ -411,19 +445,19 @@ class CarModel extends JFrame implements ActionListener {
                 }
 
                 serviceRecordsTable.setSize(200, this.serviceRecordList.size() * 25);
-                serviceRecordsTable.setLocation(500,  550);
+                serviceRecordsTable.setLocation(500,  450);
                 c.add(serviceRecordsTable);
 
                 JLabel serviceDateLabel = new JLabel("Service Date");
                 JLabel serviceCostLabel = new JLabel("Service Cost");
 
                 serviceDateLabel.setSize(100, 100);
-                serviceDateLabel.setLocation(550, 450);
-                serviceDateLabel.setForeground(Color.green);
+                serviceDateLabel.setLocation(500, 390);
+                serviceDateLabel.setForeground(Color.BLUE);
 
                 serviceCostLabel.setSize(100, 100);
-                serviceCostLabel.setLocation(600, 450);
-                serviceCostLabel.setForeground(Color.green);
+                serviceCostLabel.setLocation(590, 390);
+                serviceCostLabel.setForeground(Color.BLUE);
 
                 c.add(serviceDateLabel);
                 c.add(serviceCostLabel);
